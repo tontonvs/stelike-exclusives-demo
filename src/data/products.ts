@@ -1,0 +1,215 @@
+import type { Product, CategoryShortcut } from "../types";
+
+// Stelike Exclusives currently deals mainly in center tables and luxury TV
+// stands/units, plus a smaller line of mirrors and bed frames. All items
+// below are placeholders (names, prices, specs) until real catalog photos
+// and confirmed pricing come in — swap them in here once available.
+export const products: Product[] = [
+  // ----- Center Tables -----
+  {
+    id: "marble-center-table",
+    name: "Marble-Top Center Table",
+    category: "center-tables",
+    condition: "Brand New",
+    price: 2800,
+    currency: "GHS",
+    stock: 4,
+    images: [],
+    description: "Genuine marble top on a powder-coated gold steel frame.",
+    specs: [
+      { label: "Top", value: "Genuine marble" },
+      { label: "Frame", value: "Powder-coated gold steel" },
+      { label: "Dimensions", value: "110 x 60 x 45 cm" },
+      { label: "Style", value: "Modern luxury" },
+    ],
+  },
+  {
+    id: "nesting-center-table-set",
+    name: "Nesting Center Table Set (2pc)",
+    category: "center-tables",
+    condition: "Brand New",
+    price: 1600,
+    currency: "GHS",
+    stock: 6,
+    images: [],
+    description: "Two-piece tempered glass and oak veneer nesting set.",
+    specs: [
+      { label: "Material", value: "Tempered glass + oak veneer" },
+      { label: "Pieces", value: "2" },
+      { label: "Style", value: "Contemporary" },
+    ],
+  },
+  {
+    id: "round-wood-center-table",
+    name: "Round Wood Center Table",
+    category: "center-tables",
+    condition: "Brand New",
+    price: 1250,
+    originalPrice: 1500,
+    currency: "GHS",
+    stock: 3,
+    images: [],
+    specs: [
+      { label: "Material", value: "Solid mahogany" },
+      { label: "Diameter", value: "90 cm" },
+      { label: "Style", value: "Minimalist" },
+    ],
+  },
+
+  // ----- TV Stands & Units -----
+  {
+    id: "floating-led-tv-unit",
+    name: "Floating LED TV Unit",
+    category: "tv-stands",
+    condition: "Brand New",
+    price: 4200,
+    currency: "GHS",
+    stock: 2,
+    images: [],
+    description: "Wall-mounted unit with a built-in ambient LED strip.",
+    specs: [
+      { label: "Length", value: "180 cm" },
+      { label: "Material", value: "High-gloss MDF" },
+      { label: "Lighting", value: "Built-in LED strip" },
+      { label: "Storage", value: "2 cabinets + open shelf" },
+    ],
+  },
+  {
+    id: "marble-gold-tv-console",
+    name: "Marble & Gold TV Console",
+    category: "tv-stands",
+    condition: "Brand New",
+    price: 6500,
+    currency: "GHS",
+    stock: 1,
+    images: [],
+    description: "Statement console with a marble-effect top on gold legs.",
+    specs: [
+      { label: "Top", value: "Marble-effect finish" },
+      { label: "Frame", value: "Gold stainless steel legs" },
+      { label: "Length", value: "200 cm" },
+      { label: "Style", value: "Luxury" },
+    ],
+  },
+  {
+    id: "classic-wooden-tv-stand",
+    name: "Classic Wooden TV Stand",
+    category: "tv-stands",
+    condition: "Brand New",
+    price: 2400,
+    currency: "GHS",
+    stock: 0,
+    soldOut: true,
+    images: [],
+    specs: [
+      { label: "Material", value: "Solid oak" },
+      { label: "Length", value: "150 cm" },
+      { label: "Storage", value: "3 drawers" },
+    ],
+  },
+
+  // ----- Mirrors -----
+  {
+    id: "gold-arch-mirror",
+    name: "Full-Length Gold Arch Mirror",
+    category: "mirrors",
+    condition: "Brand New",
+    price: 1450,
+    currency: "GHS",
+    stock: 5,
+    images: [],
+    specs: [
+      { label: "Frame", value: "Brushed gold metal" },
+      { label: "Shape", value: "Arch" },
+      { label: "Height", value: "170 cm" },
+    ],
+  },
+  {
+    id: "sunburst-wall-mirror",
+    name: "Round Sunburst Wall Mirror",
+    category: "mirrors",
+    condition: "Brand New",
+    price: 950,
+    originalPrice: 1150,
+    currency: "GHS",
+    stock: 4,
+    images: [],
+    specs: [
+      { label: "Frame", value: "Metal sunburst rays" },
+      { label: "Diameter", value: "80 cm" },
+      { label: "Style", value: "Statement piece" },
+    ],
+  },
+  {
+    id: "oval-mirror-black",
+    name: "Minimalist Oval Mirror",
+    category: "mirrors",
+    condition: "Brand New",
+    price: 680,
+    currency: "GHS",
+    stock: 7,
+    images: [],
+    specs: [
+      { label: "Frame", value: "Matte black metal" },
+      { label: "Shape", value: "Oval" },
+      { label: "Height", value: "110 cm" },
+    ],
+  },
+
+  // ----- Bed Frames -----
+  {
+    id: "upholstered-king-bed",
+    name: "Upholstered King Bed Frame",
+    category: "bed-frames",
+    condition: "Brand New",
+    price: 5200,
+    currency: "GHS",
+    stock: 3,
+    images: [],
+    description: "Tufted velvet headboard, king size.",
+    specs: [
+      { label: "Size", value: "King" },
+      { label: "Upholstery", value: "Velvet" },
+      { label: "Headboard", value: "Tufted" },
+      { label: "Style", value: "Luxury" },
+    ],
+  },
+  {
+    id: "platform-queen-bed",
+    name: "Platform Queen Bed Frame",
+    category: "bed-frames",
+    condition: "Brand New",
+    price: 3600,
+    currency: "GHS",
+    stock: 2,
+    images: [],
+    specs: [
+      { label: "Size", value: "Queen" },
+      { label: "Material", value: "Solid wood" },
+      { label: "Style", value: "Minimalist platform" },
+    ],
+  },
+  {
+    id: "leather-panel-bed",
+    name: "Leather Panel Bed Frame",
+    category: "bed-frames",
+    condition: "Brand New",
+    price: 4800,
+    originalPrice: 5400,
+    currency: "GHS",
+    stock: 1,
+    images: [],
+    specs: [
+      { label: "Size", value: "King" },
+      { label: "Upholstery", value: "Faux leather" },
+      { label: "Headboard", value: "Panelled" },
+    ],
+  },
+];
+
+export const categoryShortcuts: CategoryShortcut[] = [
+  { id: "cat-center-tables", label: "Center Tables", category: "center-tables" },
+  { id: "cat-tv-stands", label: "TV Stands & Units", category: "tv-stands" },
+  { id: "cat-mirrors", label: "Mirrors", category: "mirrors" },
+  { id: "cat-bed-frames", label: "Bed Frames", category: "bed-frames" },
+];
