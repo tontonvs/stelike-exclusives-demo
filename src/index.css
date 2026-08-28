@@ -30,6 +30,9 @@
   --glass-bg-light: rgba(255, 255, 255, 0.16);
   --glass-border: rgba(255, 255, 255, 0.22);
   --glass-blur: 20px;
+
+  /* Gold accent gradient — used for emphasis text on dark/photo surfaces */
+  --gradient-gold: linear-gradient(90deg, #f4e2b8 0%, #c9a227 50%, #f4e2b8 100%);
 }
 
 * {

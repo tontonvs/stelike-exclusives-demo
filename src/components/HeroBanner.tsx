@@ -1,48 +1,18 @@
-import { useEffect, useState } from "react";
-
-interface Slide {
-  title: string;
-  subtitle: string;
-}
-
-const slides: Slide[] = [
-  {
-    title: "Stelike Exclusives",
-    subtitle: "Curated furniture and interior pieces for homes across Accra.",
-  },
-  {
-    title: "Style That Lasts",
-    subtitle: "Living room, bedroom & dining — delivered across Accra, Achimota & East Legon.",
-  },
-];
-
 export default function HeroBanner() {
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % slides.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <section style={styles.hero}>
-      {slides.map((slide, index) => (
-        <div
-          key={slide.title}
-          style={{
-            ...styles.slide,
-            opacity: index === activeIndex ? 1 : 0,
-            pointerEvents: index === activeIndex ? "auto" : "none",
-          }}
-        >
-          <div style={styles.panel}>
-            <h1 style={styles.title}>{slide.title}</h1>
-            <p style={styles.subtitle}>{slide.subtitle}</p>
-          </div>
-        </div>
-      ))}
+      <div style={styles.overlay} />
+      <div style={styles.content}>
+        <h1 style={styles.title}>
+          <span style={styles.gold}>Welcome</span>
+          <br />
+          to Stelike Exclusives
+        </h1>
+        <p style={styles.subtitle}>
+          Curated center tables, TV stands &amp; units, mirrors and bed
+          frames — delivered across Accra, Achimota &amp; East Legon.
+        </p>
+      </div>
     </section>
   );
 }
@@ -50,41 +20,45 @@ export default function HeroBanner() {
 const styles: Record<string, React.CSSProperties> = {
   hero: {
     position: "relative",
-    height: 104,
-    background:
-      "linear-gradient(135deg, #C9A98C 0%, #8B6A57 50%, #4B362C 100%)",
+    height: "4.5cm",
+    backgroundImage: "url(/banner/hero-tv-unit.jpg)",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
     display: "flex",
-    alignItems: "center",
-    padding: "0 14px",
+    alignItems: "flex-end",
     overflow: "hidden",
   },
-  slide: {
+  overlay: {
     position: "absolute",
-    left: 14,
-    right: 14,
-    transition: "opacity 0.6s ease",
+    inset: 0,
+    background:
+      "linear-gradient(180deg, rgba(20,15,13,0.15) 0%, rgba(20,15,13,0.35) 55%, rgba(15,11,9,0.82) 100%)",
   },
-  panel: {
-    background: "var(--glass-bg-light)",
-    WebkitBackdropFilter: "blur(var(--glass-blur))",
-    backdropFilter: "blur(var(--glass-blur))",
-    border: "1px solid var(--glass-border)",
-    borderRadius: "var(--radius-lg)",
-    padding: "10px 16px",
+  content: {
+    position: "relative",
+    zIndex: 1,
+    padding: "16px 18px 18px",
   },
   title: {
     margin: 0,
     fontFamily: "var(--font-display)",
     fontWeight: 700,
-    fontSize: "1.1rem",
+    fontSize: "1.5rem",
+    lineHeight: 1.15,
     color: "white",
-    letterSpacing: "0.02em",
+  },
+  gold: {
+    background: "var(--gradient-gold)",
+    WebkitBackgroundClip: "text",
+    backgroundClip: "text",
+    color: "transparent",
   },
   subtitle: {
-    margin: "4px 0 0",
+    margin: "8px 0 0",
     fontFamily: "var(--font-body)",
     fontSize: "0.78rem",
-    color: "rgba(255,255,255,0.88)",
-    lineHeight: 1.35,
+    lineHeight: 1.4,
+    color: "rgba(255,255,255,0.85)",
+    maxWidth: 300,
   },
 };
