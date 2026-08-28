@@ -90,6 +90,10 @@ button {
   border: 1px solid var(--glass-border);
 }
 
+.category-scroll::-webkit-scrollbar {
+  display: none;
+}
+
 @keyframes shimmer {
   0% {
     background-position: 100% 50%;

@@ -2,20 +2,21 @@ import type { ReactElement } from "react";
 import { categoryShortcuts } from "../data/products";
 import type { ProductCategory } from "../types";
 
-// No category photography yet — using line icons instead of the photo
-// circles the old repo used, until real shots come in.
+// No dedicated category photography yet — using line icons instead of the
+// photo circles the old repo used, until real category shots come in.
 const iconByCategory: Record<ProductCategory, () => ReactElement> = {
   "center-tables": TableIcon,
   "tv-stands": TvIcon,
   mirrors: MirrorIcon,
   "bed-frames": BedIcon,
+  dressers: DresserIcon,
 };
 
 export default function CategoryCircles() {
   return (
     <section style={styles.wrap}>
       <h2 style={styles.heading}>Shop by Category</h2>
-      <div style={styles.row}>
+      <div style={styles.scrollArea} className="category-scroll">
         {categoryShortcuts.map((shortcut) => {
           const Icon = iconByCategory[shortcut.category];
           return (
@@ -34,7 +35,7 @@ export default function CategoryCircles() {
 
 function TableIcon() {
   return (
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
       <path
         d="M3 8h18M5 8v10M19 8v10M8 8V5.5A1.5 1.5 0 019.5 4h5A1.5 1.5 0 0116 5.5V8"
         stroke="var(--color-brand)"
@@ -48,7 +49,7 @@ function TableIcon() {
 
 function TvIcon() {
   return (
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
       <rect
         x="3"
         y="5"
@@ -70,7 +71,7 @@ function TvIcon() {
 
 function MirrorIcon() {
   return (
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
       <ellipse
         cx="12"
         cy="10"
@@ -91,7 +92,7 @@ function MirrorIcon() {
 
 function BedIcon() {
   return (
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
       <path
         d="M3 19v-7a2 2 0 012-2h14a2 2 0 012 2v7M3 19v-2.5M21 19v-2.5M3 14.5h18"
         stroke="var(--color-brand)"
@@ -110,21 +111,49 @@ function BedIcon() {
   );
 }
 
+function DresserIcon() {
+  return (
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
+      <rect
+        x="4"
+        y="4"
+        width="16"
+        height="16"
+        rx="1.5"
+        stroke="var(--color-brand)"
+        strokeWidth="1.6"
+      />
+      <path
+        d="M6 9.5h5M6 13h5M6 16.5h5"
+        stroke="var(--color-brand)"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
 const styles: Record<string, React.CSSProperties> = {
   wrap: {
-    padding: "18px 16px 4px",
+    padding: "18px 0 4px",
   },
   heading: {
-    margin: "0 0 14px",
+    margin: "0 16px 14px",
     fontFamily: "var(--font-display)",
     fontWeight: 700,
     fontSize: "0.95rem",
     color: "var(--color-text-dark)",
   },
-  row: {
+  scrollArea: {
     display: "flex",
     justifyContent: "flex-start",
-    gap: 5,
+    gap: 12,
+    overflowX: "auto",
+    scrollSnapType: "x proximity",
+    padding: "0 16px 4px",
+    WebkitOverflowScrolling: "touch",
+    scrollbarWidth: "none",
+    msOverflowStyle: "none",
   },
   item: {
     display: "flex",
@@ -134,10 +163,11 @@ const styles: Record<string, React.CSSProperties> = {
     background: "none",
     border: "none",
     flex: "0 0 auto",
+    scrollSnapAlign: "start",
   },
   circle: {
-    width: 69,
-    height: 69,
+    width: 84,
+    height: 84,
     borderRadius: "50%",
     background: "var(--color-card)",
     border: "1px solid #E7E1D3",
@@ -148,9 +178,10 @@ const styles: Record<string, React.CSSProperties> = {
     boxShadow: "0 2px 6px rgba(43,33,29,0.08)",
   },
   label: {
-    fontSize: "0.7rem",
+    fontSize: "0.72rem",
     fontWeight: 500,
     color: "var(--color-text-muted)",
     textAlign: "center",
+    maxWidth: 84,
   },
 };

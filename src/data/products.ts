@@ -1,11 +1,29 @@
 import type { Product, CategoryShortcut } from "../types";
 
 // Stelike Exclusives currently deals mainly in center tables and luxury TV
-// stands/units, plus a smaller line of mirrors and bed frames. All items
-// below are placeholders (names, prices, specs) until real catalog photos
-// and confirmed pricing come in — swap them in here once available.
+// stands/units, plus mirrors, bed frames, and now dressers. A few entries
+// below have real catalog photos (Tom sent these); the rest are still
+// placeholders (names, prices, specs) until real photos and confirmed
+// pricing come in for them too.
 export const products: Product[] = [
   // ----- Center Tables -----
+  {
+    id: "wood-glass-center-table",
+    name: "Wood & Glass Center Table",
+    category: "center-tables",
+    condition: "Brand New",
+    price: 2400,
+    currency: "GHS",
+    stock: 4,
+    images: ["/products/wood-glass-center-table.jpg"],
+    description: "Walnut wood frame with a smoked tempered-glass top.",
+    specs: [
+      { label: "Top", value: "Smoked tempered glass" },
+      { label: "Frame", value: "Solid walnut wood" },
+      { label: "Dimensions", value: "80 x 80 x 40 cm" },
+      { label: "Style", value: "Modern" },
+    ],
+  },
   {
     id: "marble-center-table",
     name: "Marble-Top Center Table",
@@ -39,39 +57,22 @@ export const products: Product[] = [
       { label: "Style", value: "Contemporary" },
     ],
   },
-  {
-    id: "round-wood-center-table",
-    name: "Round Wood Center Table",
-    category: "center-tables",
-    condition: "Brand New",
-    price: 1250,
-    originalPrice: 1500,
-    currency: "GHS",
-    stock: 3,
-    images: [],
-    specs: [
-      { label: "Material", value: "Solid mahogany" },
-      { label: "Diameter", value: "90 cm" },
-      { label: "Style", value: "Minimalist" },
-    ],
-  },
 
   // ----- TV Stands & Units -----
   {
-    id: "floating-led-tv-unit",
-    name: "Floating LED TV Unit",
+    id: "fluted-walnut-tv-console",
+    name: "Fluted Walnut TV Console",
     category: "tv-stands",
     condition: "Brand New",
-    price: 4200,
+    price: 3600,
     currency: "GHS",
-    stock: 2,
-    images: [],
-    description: "Wall-mounted unit with a built-in ambient LED strip.",
+    stock: 3,
+    images: ["/products/fluted-walnut-tv-console.jpg"],
+    description: "Low, wide console with a vertical fluted wood front.",
     specs: [
-      { label: "Length", value: "180 cm" },
-      { label: "Material", value: "High-gloss MDF" },
-      { label: "Lighting", value: "Built-in LED strip" },
-      { label: "Storage", value: "2 cabinets + open shelf" },
+      { label: "Length", value: "220 cm" },
+      { label: "Material", value: "Solid walnut, fluted panel doors" },
+      { label: "Style", value: "Floating / low profile" },
     ],
   },
   {
@@ -110,6 +111,22 @@ export const products: Product[] = [
 
   // ----- Mirrors -----
   {
+    id: "round-led-mirror",
+    name: "Round LED Backlit Mirror",
+    category: "mirrors",
+    condition: "Brand New",
+    price: 1650,
+    currency: "GHS",
+    stock: 3,
+    images: ["/products/round-led-mirror.jpg"],
+    description: "Frameless round mirror with warm LED edge lighting.",
+    specs: [
+      { label: "Frame", value: "Frameless, LED edge light" },
+      { label: "Shape", value: "Round" },
+      { label: "Diameter", value: "90 cm" },
+    ],
+  },
+  {
     id: "gold-arch-mirror",
     name: "Full-Length Gold Arch Mirror",
     category: "mirrors",
@@ -122,22 +139,6 @@ export const products: Product[] = [
       { label: "Frame", value: "Brushed gold metal" },
       { label: "Shape", value: "Arch" },
       { label: "Height", value: "170 cm" },
-    ],
-  },
-  {
-    id: "sunburst-wall-mirror",
-    name: "Round Sunburst Wall Mirror",
-    category: "mirrors",
-    condition: "Brand New",
-    price: 950,
-    originalPrice: 1150,
-    currency: "GHS",
-    stock: 4,
-    images: [],
-    specs: [
-      { label: "Frame", value: "Metal sunburst rays" },
-      { label: "Diameter", value: "80 cm" },
-      { label: "Style", value: "Statement piece" },
     ],
   },
   {
@@ -158,6 +159,22 @@ export const products: Product[] = [
 
   // ----- Bed Frames -----
   {
+    id: "platform-bed-nightstands",
+    name: "Platform Bed with Integrated Nightstands",
+    category: "bed-frames",
+    condition: "Brand New",
+    price: 5600,
+    currency: "GHS",
+    stock: 2,
+    images: ["/products/platform-bed-nightstands.jpg"],
+    description: "Wide wood headboard with built-in floating nightstands.",
+    specs: [
+      { label: "Size", value: "King" },
+      { label: "Material", value: "Solid wood" },
+      { label: "Style", value: "Minimalist platform, attached nightstands" },
+    ],
+  },
+  {
     id: "upholstered-king-bed",
     name: "Upholstered King Bed Frame",
     category: "bed-frames",
@@ -172,21 +189,6 @@ export const products: Product[] = [
       { label: "Upholstery", value: "Velvet" },
       { label: "Headboard", value: "Tufted" },
       { label: "Style", value: "Luxury" },
-    ],
-  },
-  {
-    id: "platform-queen-bed",
-    name: "Platform Queen Bed Frame",
-    category: "bed-frames",
-    condition: "Brand New",
-    price: 3600,
-    currency: "GHS",
-    stock: 2,
-    images: [],
-    specs: [
-      { label: "Size", value: "Queen" },
-      { label: "Material", value: "Solid wood" },
-      { label: "Style", value: "Minimalist platform" },
     ],
   },
   {
@@ -205,6 +207,55 @@ export const products: Product[] = [
       { label: "Headboard", value: "Panelled" },
     ],
   },
+
+  // ----- Dressers (new category) -----
+  {
+    id: "white-6-drawer-dresser",
+    name: "White 6-Drawer Dresser",
+    category: "dressers",
+    condition: "Brand New",
+    price: 3200,
+    currency: "GHS",
+    stock: 3,
+    images: ["/products/white-6-drawer-dresser.jpg"],
+    description: "Clean white matte dresser with 6 spacious drawers.",
+    specs: [
+      { label: "Material", value: "Engineered wood, matte white finish" },
+      { label: "Drawers", value: "6" },
+      { label: "Dimensions", value: "140 x 45 x 80 cm" },
+    ],
+  },
+  {
+    id: "walnut-4-drawer-dresser",
+    name: "Walnut 4-Drawer Dresser",
+    category: "dressers",
+    condition: "Brand New",
+    price: 2600,
+    currency: "GHS",
+    stock: 2,
+    images: [],
+    specs: [
+      { label: "Material", value: "Solid walnut" },
+      { label: "Drawers", value: "4" },
+      { label: "Style", value: "Minimalist" },
+    ],
+  },
+  {
+    id: "mirrored-3-drawer-dresser",
+    name: "Mirrored 3-Drawer Dresser",
+    category: "dressers",
+    condition: "Brand New",
+    price: 3800,
+    originalPrice: 4200,
+    currency: "GHS",
+    stock: 1,
+    images: [],
+    specs: [
+      { label: "Material", value: "MDF with mirrored glass panels" },
+      { label: "Drawers", value: "3" },
+      { label: "Style", value: "Glam / luxury" },
+    ],
+  },
 ];
 
 export const categoryShortcuts: CategoryShortcut[] = [
@@ -212,4 +263,5 @@ export const categoryShortcuts: CategoryShortcut[] = [
   { id: "cat-tv-stands", label: "TV Stands & Units", category: "tv-stands" },
   { id: "cat-mirrors", label: "Mirrors", category: "mirrors" },
   { id: "cat-bed-frames", label: "Bed Frames", category: "bed-frames" },
+  { id: "cat-dressers", label: "Dressers", category: "dressers" },
 ];

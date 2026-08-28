@@ -2,7 +2,8 @@ export type ProductCategory =
   | "center-tables"
   | "tv-stands"
   | "mirrors"
-  | "bed-frames";
+  | "bed-frames"
+  | "dressers";
 
 export type ProductCondition = "Brand New" | "Preowned";
 
