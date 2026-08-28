@@ -1,16 +1,21 @@
 import type { Product } from "../types";
 import { useProductOverlay } from "../context/ProductOverlayContext";
 import ConditionBadge from "./ConditionBadge";
+import HotBadge from "./HotBadge";
 
 interface ProductCardProps {
   product: Product;
+  showHotBadge?: boolean;
 }
 
 export function formatPrice(value: number): string {
   return `GH₵${value.toLocaleString("en-GH")}`;
 }
 
-export default function ProductCard({ product }: ProductCardProps) {
+export default function ProductCard({
+  product,
+  showHotBadge = false,
+}: ProductCardProps) {
   const { openProduct } = useProductOverlay();
   const soldOut = Boolean(product.soldOut);
   const coverImage = product.images[0];
@@ -30,6 +35,11 @@ export default function ProductCard({ product }: ProductCardProps) {
         <div style={styles.conditionTagPosition}>
           <ConditionBadge condition={product.condition} />
         </div>
+        {showHotBadge && (
+          <div style={styles.hotTagPosition}>
+            <HotBadge />
+          </div>
+        )}
         {soldOut && (
           <div style={styles.soldOutOverlay}>
             <span style={styles.soldOutText}>Sold Out</span>
@@ -97,6 +107,11 @@ const styles: Record<string, React.CSSProperties> = {
     position: "absolute",
     top: 6,
     left: 6,
+  },
+  hotTagPosition: {
+    position: "absolute",
+    top: 6,
+    right: 6,
   },
   soldOutOverlay: {
     position: "absolute",

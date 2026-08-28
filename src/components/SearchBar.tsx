@@ -1,20 +1,20 @@
-import { useState } from "react";
-
 interface SearchBarProps {
+  value: string;
+  onChange: (value: string) => void;
   placeholder?: string;
 }
 
 export default function SearchBar({
+  value,
+  onChange,
   placeholder = "Search for what you need",
 }: SearchBarProps) {
-  const [value, setValue] = useState("");
-
   return (
     <div style={styles.wrap}>
       <input
         type="text"
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         style={styles.input}
       />

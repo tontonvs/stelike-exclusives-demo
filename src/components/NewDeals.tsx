@@ -1,20 +1,37 @@
-import { products } from "../data/products";
+import { useNavigate } from "react-router-dom";
+import { products, categoryShortcuts } from "../data/products";
 import ProductCard from "./ProductCard";
 
+const PER_CATEGORY = 2;
+
+// Two per category, in the same order the categories appear in the
+// category circles, so every category gets a chance to show on the home
+// page instead of just whichever items happen to be first in the array.
+function getFeaturedProducts() {
+  return categoryShortcuts.flatMap((shortcut) =>
+    products
+      .filter((product) => product.category === shortcut.category)
+      .slice(0, PER_CATEGORY)
+  );
+}
+
 export default function NewDeals() {
+  const navigate = useNavigate();
+  const featured = getFeaturedProducts();
+
   return (
     <section style={styles.wrap}>
       <div style={styles.headRow}>
         <h2 style={styles.heading}>Featured Pieces</h2>
-        <button style={styles.showAll}>
+        <button style={styles.showAll} onClick={() => navigate("/shop")}>
           Show all
           <ArrowIcon />
         </button>
       </div>
 
       <div style={styles.grid}>
-        {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
+        {featured.map((product) => (
+          <ProductCard key={product.id} product={product} showHotBadge />
         ))}
       </div>
     </section>
